@@ -1,0 +1,60 @@
+<html>
+<head>
+<script type="text/javascript">
+function chkEmpty(){
+	var mob = /^[7-9]{1}[0-9]{9}$/;
+	var email=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+		if (document.frmReg.txtFirstName.value == "") {alert("Please fill the First Name");}
+	else if (document.frmReg.txtEmail.value == ""){alert("Please fill the Email");}
+	else if (email.test(document.frmReg.txtEmail.value) == false) { alert("Please enter valid Email Id.");}
+	else if (document.frmReg.txtPhone.value == "") {alert("Please fill the Mobile No.");}
+	else if (mob.test(document.frmReg.txtPhone.value) == false) { alert("Please enter valid Contact no.");}
+	else if(document.frmReg.address.value == ""){alert("Please enter address.");}
+	else if ( ( frmReg.gender[0].checked == false ) && ( frmReg.gender[1].checked == false ) ) { alert ( "Please choose your Gender: Male or Female" ); }
+		else { alert("Successfully!");
+	//window.location="success.html";
+		}
+	}
+</script>
+</head>
+<title>Form Demo</title>
+<body>
+<h1>Enter your details</h1>
+<form name="frmReg">
+<table>
+  <tr>
+                <td align="left">Name* : </td>
+                <td><input type="text" class="Format1" id ="txtFirstName" name="txtFN" /></td>
+            </tr>
+<tr>
+                <td align="left">Mobile no.*:</td>
+                <td><input type="text" name="Phone" id ="txtPhone"  pattern="[789][0-9]{9}"/></td>
+            </tr>
+<tr>
+                <td align="left">Email* :</td>
+                <td><input type="text" id ="txtEmail" name="Email" pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/"/></td>
+            </tr>
+<tr><td>Gender: </td>
+<td><input type="radio" id="male" value="Male" name="gender" >Male
+		<input type="radio" id="female" value="Female" name="gender" >Female</td></tr>
+<tr>
+                <td align="left">Address:</td>
+                <td>
+                	<textarea rows="5" cols="20" id="address"></textarea>
+                </td>
+			</tr>
+<tr>
+<td>L</td>
+<td></td>
+</tr>
+
+			<tr>
+                <td colspan=2 align="right"> <br> 
+				<input type="button" id ="btn"  value = "Confirm Booking" onclick=chkEmpty()>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </tr>
+</table>
+			</form>
+</body>
+</html>
